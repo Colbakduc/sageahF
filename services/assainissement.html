@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assainissement et VRD | SAGEAH Ingénierie</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Additional styles for service detail page */
+    .service-hero {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .service-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .service-hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .service-hero-content h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-hero-content p {
+      font-size: 18px;
+      line-height: 1.5;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-details {
+      padding: 50px 0;
+    }
+
+    .service-section {
+      margin-bottom: 40px;
+    }
+
+    .service-section h2 {
+      color: var(--primary);
+      font-size: 28px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      position: relative;
+    }
+
+    .service-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+
+    .service-section p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .service-features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .feature-card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .feature-description {
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    .methodology-steps {
+      counter-reset: step-counter;
+      margin-top: 30px;
+    }
+
+    .step-item {
+      display: flex;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+
+    .step-content {
+      padding-top: 5px;
+    }
+
+    .step-title {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .step-description {
+      line-height: 1.5;
+    }
+
+    .related-services {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid #eee;
+    }
+
+    .related-title {
+      text-align: center;
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 30px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .related-service {
+      display: flex;
+      align-items: center;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .related-service:hover {
+      transform: translateY(-5px);
+    }
+
+    .related-image {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .related-content {
+      padding: 15px;
+    }
+
+    .related-content h3 {
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .related-content p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .related-link {
+      font-size: 14px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .cta-section {
+      background-color: var(--primary);
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .cta-text {
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      background-color: #0cc7c9;
+      color: white;
+    }
+
+    @media (min-width: 768px) {
+      .service-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .service-features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <a href="../index.html" class="logo">
+          <img src="../logo.png" alt="Sageah Ingénierie Logo">
+          <span>SAGEAH INGÉNIERIE</span>
+        </a>
+
+        <!-- Menu mobile -->
+        <button class="menu-toggle" id="menuToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
+        <!-- Menu desktop -->
+        <nav class="desktop-menu">
+          <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="../notre-societe.html">Notre société</a></li>
+            <li><a href="../vos-enjeux.html">Vos enjeux</a></li>
+            <li><a href="../nos-expertises.html">Nos expertises</a></li>
+            <li><a href="../nos-materiels.html">Nos matériels</a></li>
+            <li><a href="../contact.html">Nous contacter</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Menu mobile overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <button class="close-menu" id="closeMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="mobile-menu">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../notre-societe.html">Notre société</a></li>
+          <li><a href="../vos-enjeux.html">Vos enjeux</a></li>
+          <li><a href="../nos-expertises.html">Nos expertises</a></li>
+          <li><a href="../nos-materiels.html">Nos matériels</a></li>
+          <li><a href="../contact.html">Nous contacter</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <div class="service-hero">
+        <img src="https://ext.same-assets.com/1594461478/2695826824.jpeg" alt="Assainissement et VRD">
+        <div class="service-hero-content">
+          <h1>Assainissement et VRD</h1>
+          <p>Des solutions techniques durables pour une gestion optimale des réseaux et infrastructures urbaines</p>
+        </div>
+      </div>
+
+      <!-- Service Details -->
+      <section class="service-details">
+        <div class="container">
+          <div class="content-card">
+            <div class="service-section">
+              <h2>Notre expertise en assainissement et VRD</h2>
+              <p>SAGEAH Ingénierie vous accompagne dans la conception, la réalisation et l'optimisation de vos projets d'assainissement et de Voirie-Réseaux-Divers (VRD). Notre approche intégrée prend en compte les enjeux techniques, environnementaux et économiques pour développer des solutions durables et adaptées à vos besoins spécifiques.</p>
+              <p>Forts de notre expertise hydraulique, nous concevons des systèmes d'assainissement performants qui garantissent la bonne gestion des eaux usées et pluviales tout en respectant les contraintes réglementaires et en préservant les milieux naturels. Notre équipe maîtrise également l'ensemble des aspects liés aux infrastructures urbaines, de la voirie aux réseaux divers.</p>
+              <p>Nous privilégions les solutions innovantes et écologiques qui permettent de réduire l'empreinte environnementale des projets, d'optimiser leur coût global et d'améliorer leur résilience face aux enjeux climatiques actuels et futurs.</p>
+            </div>
+
+            <div class="service-section">
+              <h2>Nos services en assainissement et VRD</h2>
+              <div class="service-features">
+                <div class="feature-card">
+                  <div class="feature-icon">1</div>
+                  <h3 class="feature-title">Réseaux d'assainissement</h3>
+                  <p class="feature-description">Conception et dimensionnement de réseaux d'eaux usées et pluviales, optimisation hydraulique, modélisation des écoulements et élaboration de plans directeurs d'assainissement pour les collectivités.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon">2</div>
+                  <h3 class="feature-title">Stations d'épuration</h3>
+                  <p class="feature-description">Études de conception, dimensionnement et suivi de réalisation de stations d'épuration adaptées aux besoins spécifiques des collectivités, avec une approche privilégiant les solutions écologiques.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon">3</div>
+                  <h3 class="feature-title">Ouvrages hydrauliques</h3>
+                  <p class="feature-description">Conception de bassins de rétention, de régulation et d'infiltration, de postes de relevage, de déversoirs d'orage et autres ouvrages spéciaux pour la gestion optimale des flux hydrauliques.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon">4</div>
+                  <h3 class="feature-title">Voiries et espaces publics</h3>
+                  <p class="feature-description">Aménagement de voiries, parkings et espaces publics intégrant des matériaux perméables et des solutions de gestion alternative des eaux pluviales (noues, revêtements drainants).</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon">5</div>
+                  <h3 class="feature-title">Réseaux divers</h3>
+                  <p class="feature-description">Conception et coordination des réseaux secs (électricité, télécommunications, éclairage public) et des réseaux humides (eau potable, irrigation) en cohérence avec les autres infrastructures.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon">6</div>
+                  <h3 class="feature-title">Diagnostic et réhabilitation</h3>
+                  <p class="feature-description">Inspection et évaluation de l'état des réseaux existants, identification des dysfonctionnements et proposition de solutions techniques pour leur remise à niveau et leur optimisation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-section">
+              <h2>Notre méthodologie</h2>
+              <p>Notre approche méthodique et rigoureuse nous permet de concevoir et de mettre en œuvre des projets d'assainissement et de VRD performants, durables et parfaitement adaptés aux spécificités de chaque site.</p>
+
+              <div class="methodology-steps">
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h3 class="step-title">Analyse du contexte et des besoins</h3>
+                    <p class="step-description">Étude approfondie du site, de son environnement, de ses contraintes et des besoins spécifiques du projet pour établir un diagnostic précis et identifier les enjeux techniques, réglementaires et environnementaux.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h3 class="step-title">Études préliminaires</h3>
+                    <p class="step-description">Élaboration d'esquisses et d'avant-projets permettant de comparer différentes solutions techniques, d'évaluer leurs impacts et leurs coûts, et de sélectionner la solution la plus pertinente en concertation avec le client.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h3 class="step-title">Conception détaillée</h3>
+                    <p class="step-description">Développement des plans d'exécution, des notes de calcul, des cahiers des charges techniques et des estimations financières précises pour la mise en œuvre du projet, incluant un phasage optimisé des travaux.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h3 class="step-title">Modélisation hydraulique</h3>
+                    <p class="step-description">Utilisation d'outils de simulation avancés pour dimensionner précisément les réseaux et ouvrages, vérifier leur fonctionnement en différentes conditions et optimiser leur performance hydraulique et leur résilience.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h3 class="step-title">Assistance à la réalisation</h3>
+                    <p class="step-description">Suivi des travaux, contrôle de leur conformité avec les plans et prescriptions techniques, gestion des adaptations éventuelles et coordination avec les différents intervenants pour garantir la qualité d'exécution.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-number">6</div>
+                  <div class="step-content">
+                    <h3 class="step-title">Réception et suivi</h3>
+                    <p class="step-description">Organisation des opérations de réception, vérification du bon fonctionnement des installations, établissement des dossiers des ouvrages exécutés et, si nécessaire, accompagnement pour la mise en place d'un programme d'entretien et de maintenance.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="related-services">
+              <h2 class="related-title">Services associés</h2>
+              <div class="related-grid">
+                <a href="gestion-eaux-pluviales.html" class="related-service">
+                  <img src="https://ext.same-assets.com/1594461478/2551244102.jpeg" alt="Gestion écologique des eaux pluviales" class="related-image">
+                  <div class="related-content">
+                    <h3>Gestion écologique des eaux pluviales</h3>
+                    <p>Solutions alternatives et durables pour intégrer harmonieusement la gestion de l'eau dans les aménagements urbains.</p>
+                    <span class="related-link">En savoir plus →</span>
+                  </div>
+                </a>
+                <a href="modelisation.html" class="related-service">
+                  <img src="https://ext.same-assets.com/1594461478/1099321901.jpeg" alt="Modélisation hydraulique" class="related-image">
+                  <div class="related-content">
+                    <h3>Modélisation hydraulique</h3>
+                    <p>Simulation numérique pour optimiser le dimensionnement et le fonctionnement des réseaux d'assainissement.</p>
+                    <span class="related-link">En savoir plus →</span>
+                  </div>
+                </a>
+                <a href="dossiers.html" class="related-service">
+                  <img src="https://ext.same-assets.com/1594461478/2099967393.png" alt="Dossiers réglementaires" class="related-image">
+                  <div class="related-content">
+                    <h3>Dossiers réglementaires</h3>
+                    <p>Accompagnement administratif pour l'obtention des autorisations nécessaires aux projets d'assainissement.</p>
+                    <span class="related-link">En savoir plus →</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <h2 class="cta-title">Besoin d'une expertise en assainissement et VRD ?</h2>
+          <p class="cta-text">Contactez nos ingénieurs pour développer des solutions techniques innovantes, durables et performantes pour vos projets d'infrastructures urbaines.</p>
+          <a href="../contact.html" class="cta-button">Nous contacter</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="../logo.png" alt="Sageah Ingénierie Logo">
+          </div>
+
+          <div class="footer-info">
+            <p>email : contact.sageah@gmail.com ; contactez-nous : +337 53 46 11 15</p>
+            <p>© 2024 Sageah ingénierie | Tous droits réservés</p>
+          </div>
+
+          <div class="social-icons">
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('active');
+    });
+
+    document.getElementById('closeMenu').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('active');
+    });
+  </script>
+</body>
+</html>
