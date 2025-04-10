@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Expertises | SAGEAH Ingénierie</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Improved styles for the expertises page */
+    .expertise-slider {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .slide-container {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .slide {
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+      height: 0;
+      transition: opacity 0.5s ease;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      height: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide-nav {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      background-color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+      z-index: 10;
+    }
+
+    .nav-item {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item.active {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .nav-item:hover:not(.active) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .slide-content {
+      padding: 40px;
+      padding-left: 100px;
+      flex: 1;
+      max-width: 50%;
+    }
+
+    .slide-image {
+      width: 50%;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .slide-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-title {
+      color: var(--primary);
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .slide-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+
+    .slide-description {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    .bullet-list li {
+      padding-left: 25px;
+      position: relative;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .bullet-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    .conclusion {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      font-style: italic;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .slide {
+        flex-direction: column;
+      }
+
+      .slide-nav {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        padding-top: 0;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .nav-item {
+        margin: 0 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .slide-content {
+        padding: 20px;
+        max-width: 100%;
+      }
+
+      .slide-image {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Sageah Ingénierie Logo">
+          <span>SAGEAH INGÉNIERIE</span>
+        </a>
+
+        <!-- Menu mobile -->
+        <button class="menu-toggle" id="menuToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
+        <!-- Menu desktop -->
+        <nav class="desktop-menu">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="notre-societe.html">Notre société</a></li>
+            <li><a href="vos-enjeux.html">Vos enjeux</a></li>
+            <li><a href="nos-expertises.html" class="active">Nos expertises</a></li>
+            <li><a href="nos-materiels.html">Nos matériels</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Menu mobile overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <button class="close-menu" id="closeMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="mobile-menu">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="notre-societe.html">Notre société</a></li>
+          <li><a href="vos-enjeux.html">Vos enjeux</a></li>
+          <li><a href="nos-expertises.html">Nos expertises</a></li>
+          <li><a href="nos-materiels.html">Nos matériels</a></li>
+          <li><a href="contact.html">Nous contacter</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <section class="page-content">
+        <div class="container">
+          <div class="page-header">
+            <h1>
+              <span style="font-size: 1.2em; color: var(--accent); margin-right: 15px;">✧</span>
+              Nos expertises
+            </h1>
+          </div>
+
+          <div class="expertise-slider">
+            <div class="slide-container">
+              <!-- Slide Navigation -->
+              <div class="slide-nav">
+                <div class="nav-item active" data-slide="1">01</div>
+                <div class="nav-item" data-slide="2">02</div>
+                <div class="nav-item" data-slide="3">03</div>
+                <div class="nav-item" data-slide="4">04</div>
+              </div>
+
+              <!-- Slide 1 -->
+              <div class="slide active" data-slide="1">
+                <div class="slide-content">
+                  <h2 class="slide-title">Diagnostic de vos rivières</h2>
+                  <p class="slide-description">
+                    Notre équipe dévouée met à votre disposition une expertise approfondie pour comprendre l'état actuel de vos rivières et ouvrages, ainsi que pour concevoir des plans directeurs stratégiques. Nous valorisons vos ressources aquatiques et promouvons une gestion durable.
+                  </p>
+
+                  <p>Nos diagnostics comprennent :</p>
+                  <ul class="bullet-list">
+                    <li>Analyse hydromorphologique des cours d'eau</li>
+                    <li>Évaluation de la qualité écologique des milieux aquatiques</li>
+                    <li>Inspection détaillée des ouvrages hydrauliques</li>
+                    <li>Cartographie des zones à risque d'inondation</li>
+                    <li>Recommandations pour la restauration et l'amélioration</li>
+                  </ul>
+
+                  <p class="conclusion">
+                    Grâce à notre expertise, vous disposerez d'une vision claire et complète de vos systèmes aquatiques, permettant des interventions ciblées et efficaces.
+                  </p>
+                </div>
+                <div class="slide-image">
+                  <img src="https://ext.same-assets.com/1594461478/807355421.jpeg" alt="Diagnostic des rivières">
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="slide" data-slide="2">
+                <div class="slide-content">
+                  <h2 class="slide-title">Modélisation hydraulique</h2>
+                  <p class="slide-description">
+                    Notre équipe passionnée vous offre une solution innovante pour mieux comprendre et optimiser vos ressources hydriques. Nous créons des modèles précis pour une gestion durable et éclairée de vos précieuses ressources aquatiques.
+                  </p>
+
+                  <p>Notre expertise en modélisation hydraulique comprend :</p>
+                  <ul class="bullet-list">
+                    <li>Modélisation 1D et 2D des écoulements</li>
+                    <li>Simulation de crues et d'inondations</li>
+                    <li>Dimensionnement d'ouvrages hydrauliques</li>
+                    <li>Analyse des impacts hydrauliques de projets d'aménagement</li>
+                    <li>Cartographie des zones inondables</li>
+                  </ul>
+
+                  <p class="conclusion">
+                    Nos modèles hydrauliques vous permettent d'anticiper les risques et d'optimiser vos interventions pour une gestion efficace de l'eau.
+                  </p>
+                </div>
+                <div class="slide-image">
+                  <img src="https://ext.same-assets.com/1594461478/1099321901.jpeg" alt="Modélisation hydraulique">
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="slide" data-slide="3">
+                <div class="slide-content">
+                  <h2 class="slide-title">Gestion écologique des eaux pluviales</h2>
+                  <p class="slide-description">
+                    Notre engagement est de concevoir des solutions sur mesure qui préviennent efficacement les risques liés aux précipitations excessives, tout en préservant l'intégrité de votre environnement urbain et en favorisant des cités résilientes.
+                  </p>
+
+                  <p>Nos solutions de gestion des eaux pluviales incluent :</p>
+                  <ul class="bullet-list">
+                    <li>Conception de systèmes alternatifs (noues, bassins paysagers)</li>
+                    <li>Dimensionnement d'ouvrages de rétention et d'infiltration</li>
+                    <li>Valorisation écologique et paysagère des aménagements</li>
+                    <li>Optimisation des réseaux existants</li>
+                    <li>Solutions basées sur la nature pour la gestion de l'eau</li>
+                  </ul>
+
+                  <p class="conclusion">
+                    Notre approche intégrée permet de transformer les contraintes liées aux eaux pluviales en opportunités pour l'environnement urbain.
+                  </p>
+                </div>
+                <div class="slide-image">
+                  <img src="https://ext.same-assets.com/1594461478/2551244102.jpeg" alt="Gestion des eaux pluviales">
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="slide" data-slide="4">
+                <div class="slide-content">
+                  <h2 class="slide-title">Restauration de la continuité écologique</h2>
+                  <p class="slide-description">
+                    Notre mission est de redonner vie à ces écosystèmes aquatiques en rétablissant leur équilibre naturel et en favorisant la biodiversité. Nous offrons des solutions durables pour préserver la santé de vos cours d'eau.
+                  </p>
+
+                  <p>Notre expertise en restauration écologique comprend :</p>
+                  <ul class="bullet-list">
+                    <li>Aménagement de passes à poissons et rampes</li>
+                    <li>Renaturation des berges et du lit des cours d'eau</li>
+                    <li>Restauration de la diversité des habitats aquatiques</li>
+                    <li>Suppression ou aménagement d'obstacles à la continuité</li>
+                    <li>Suivi et évaluation des résultats post-restauration</li>
+                  </ul>
+
+                  <p class="conclusion">
+                    Nos interventions visent à concilier les usages humains et les besoins des écosystèmes pour des rivières vivantes et fonctionnelles.
+                  </p>
+                </div>
+                <div class="slide-image">
+                  <img src="https://ext.same-assets.com/1594461478/2203191122.jpeg" alt="Restauration écologique">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Sageah Ingénierie Logo">
+          </div>
+
+          <div class="footer-info">
+            <p>email : contact.sageah@gmail.com ; contactez-nous : +337 53 46 11 15</p>
+            <p>© 2024 Sageah ingénierie | Tous droits réservés</p>
+          </div>
+
+          <div class="social-icons">
+            <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('active');
+    });
+
+    document.getElementById('closeMenu').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('active');
+    });
+
+    // Improved expertise slider functionality
+    const navItems = document.querySelectorAll('.nav-item');
+    const slides = document.querySelectorAll('.slide');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // Get slide number
+        const slideNumber = this.getAttribute('data-slide');
+
+        // Remove active class from all nav items and slides
+        navItems.forEach(navItem => navItem.classList.remove('active'));
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // Add active class to current nav item and slide
+        this.classList.add('active');
+        document.querySelector(`.slide[data-slide="${slideNumber}"]`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
