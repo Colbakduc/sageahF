@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAGEAH Ingénierie | Hydraulique & Environnement</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="wrapper">
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Sageah Ingénierie Logo">
+          <span>SAGEAH INGÉNIERIE</span>
+        </a>
+
+        <!-- Menu mobile -->
+        <button class="menu-toggle" id="menuToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+
+        <!-- Menu desktop -->
+        <nav class="desktop-menu">
+          <ul>
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="notre-societe.html">Notre société</a></li>
+            <li><a href="vos-enjeux.html">Vos enjeux</a></li>
+            <li><a href="nos-expertises.html">Nos expertises</a></li>
+            <li><a href="nos-materiels.html">Nos matériels</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Menu mobile overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <button class="close-menu" id="closeMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="mobile-menu">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="notre-societe.html">Notre société</a></li>
+          <li><a href="vos-enjeux.html">Vos enjeux</a></li>
+          <li><a href="nos-expertises.html">Nos expertises</a></li>
+          <li><a href="nos-materiels.html">Nos matériels</a></li>
+          <li><a href="contact.html">Nous contacter</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Slideshow -->
+      <div class="slideshow">
+        <div class="slide active">
+          <img src="https://ext.same-assets.com/1594461478/2551244102.jpeg" alt="Gestion écologique des eaux pluviales">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1>Gestion écologique des eaux pluviales</h1>
+            <a href="nos-materiels.html" class="cta-button">Découvrir nos matériels</a>
+          </div>
+        </div>
+
+        <!-- Navigation arrows -->
+        <button class="slide-arrow prev" id="prevSlide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="slide-arrow next" id="nextSlide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <!-- Services Section -->
+      <section class="services">
+        <div class="container">
+          <h2 class="section-title">
+            <span class="title-icon">🌟</span> Nos prestations et activités
+          </h2>
+
+          <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://ext.same-assets.com/1594461478/807355421.jpeg" alt="Diagnostic">
+                <div class="service-overlay"></div>
+                <h3 class="service-title">Diagnostic des systèmes de drainage et rivières</h3>
+              </div>
+              <div class="service-content">
+                <p>SAGEAH Ingénierie vous accompagne dans l'analyse et l'optimisation de vos systèmes de drainage et cours d'eau. Nos diagnostics précis évaluent l'efficacité, la durabilité et la conformité de vos infrastructures.</p>
+                <a href="services/diagnostic.html" class="service-link">En savoir plus →</a>
+              </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://ext.same-assets.com/1594461478/1099321901.jpeg" alt="Modélisation">
+                <div class="service-overlay"></div>
+                <h3 class="service-title">Modélisation hydraulique</h3>
+              </div>
+              <div class="service-content">
+                <p>SAGEAH Ingénierie utilise HEC RAS 1D, 2D en modélisation hydraulique pour simuler et anticiper le comportement des cours d'eau et des systèmes de drainage.</p>
+                <a href="services/modelisation.html" class="service-link">En savoir plus →</a>
+              </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://ext.same-assets.com/1594461478/2551244102.jpeg" alt="Gestion écologique">
+                <div class="service-overlay"></div>
+                <h3 class="service-title">Gestion écologique des eaux pluviales</h3>
+              </div>
+              <div class="service-content">
+                <p>SAGEAH Ingénierie propose des solutions innovantes et respectueuses de l'environnement pour la gestion des eaux pluviales.</p>
+                <a href="services/gestion-eaux-pluviales.html" class="service-link">En savoir plus →</a>
+              </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://ext.same-assets.com/1594461478/2099967393.png" alt="Réglementation">
+                <div class="service-overlay"></div>
+                <h3 class="service-title">Rédaction de dossier réglementaire</h3>
+              </div>
+              <div class="service-content">
+                <p>SAGEAH Ingénierie vous accompagne dans la préparation et la rédaction de vos dossiers réglementaires liés à l'eau et à l'environnement.</p>
+                <a href="services/dossiers.html" class="service-link">En savoir plus →</a>
+              </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://ext.same-assets.com/1594461478/2203191122.jpeg" alt="Renaturation">
+                <div class="service-overlay"></div>
+                <h3 class="service-title">Renaturation des cours d'eau</h3>
+              </div>
+              <div class="service-content">
+                <p>Grâce à son expertise dans ce domaine, SAGEAH Ingénierie aide les collectivités locales à redonner vie aux rivières qui ont été altérées par des activités humaines.</p>
+                <a href="services/renaturation.html" class="service-link">En savoir plus →</a>
+              </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+              <div class="service-image">
+                <img src="https://ext.same-assets.com/1594461478/2695826824.jpeg" alt="Assainissement">
+                <div class="service-overlay"></div>
+                <h3 class="service-title">Assainissement et VRD</h3>
+              </div>
+              <div class="service-content">
+                <p>SAGEAH Ingénierie vous accompagne dans la conception, la réalisation et l'optimisation de vos projets d'assainissement et de Voirie-Réseaux-Divers (VRD).</p>
+                <a href="services/assainissement.html" class="service-link">En savoir plus →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Sageah Ingénierie Logo">
+          </div>
+
+          <div class="footer-info">
+            <p>email : contact.sageah@gmail.com ; contactez-nous : +337 53 46 11 15</p>
+            <p>© 2024 Sageah ingénierie | Tous droits réservés</p>
+          </div>
+
+          <div class="social-icons">
+            <a href="https://www.youtube.com/@SAGEAHIngénierie" target="_blank" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/98494342/admin/dashboard/" target="_blank" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61573016973955" target="_blank" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://twitter.com/@Sageah_ing" target="_blank" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('active');
+    });
+
+    document.getElementById('closeMenu').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('active');
+    });
+
+    // Simple slideshow functionality
+    const slides = [
+      {
+        image: "https://ext.same-assets.com/1594461478/2551244102.jpeg",
+        title: "Gestion écologique des eaux pluviales"
+      },
+      {
+        image: "https://ext.same-assets.com/1594461478/807355421.jpeg",
+        title: "Diagnostic des rivières et systèmes de drainage"
+      },
+      {
+        image: "https://ext.same-assets.com/1594461478/1099321901.jpeg",
+        title: "Modélisation hydraulique"
+      },
+      {
+        image: "https://ext.same-assets.com/1594461478/2203191122.jpeg",
+        title: "Restauration des cours d'eau"
+      }
+    ];
+
+    let currentSlide = 0;
+    const slideElement = document.querySelector('.slide');
+    const slideImg = slideElement.querySelector('img');
+    const slideTitle = slideElement.querySelector('h1');
+
+    function showSlide(index) {
+      slideImg.src = slides[index].image;
+      slideImg.alt = slides[index].title;
+      slideTitle.textContent = slides[index].title;
+
+      // Add fade effect
+      slideElement.style.opacity = 0;
+      setTimeout(() => {
+        slideElement.style.opacity = 1;
+      }, 50);
+    }
+
+    document.getElementById('prevSlide').addEventListener('click', function() {
+      currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+      showSlide(currentSlide);
+    });
+
+    document.getElementById('nextSlide').addEventListener('click', function() {
+      currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+      showSlide(currentSlide);
+    });
+
+    // Auto-advance slides
+    setInterval(function() {
+      currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+      showSlide(currentSlide);
+    }, 5000);
+  </script>
+</body>
+</html>
